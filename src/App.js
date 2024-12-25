@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ChatProvider } from "./context/ChatContext";
+import ContactList from "./components/ContactList";
+import ChatWindow from "./components/ChatWindow";
+import "./index.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChatProvider>
+      <div className="app">
+        <div className="sidebar">
+          <h2>Contacts</h2>
+          <ContactList />
+        </div>
+        <div className="main">
+          <ChatWindow />
+        </div>
+      </div>
+    </ChatProvider>
   );
-}
+};
 
 export default App;
